@@ -1,4 +1,4 @@
-# should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteHostnameRegExp.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteHostnameRegExp.ql
 
 app.get('/some/path', function(req, res) {
     let url = req.param('url'),
@@ -10,7 +10,7 @@ app.get('/some/path', function(req, res) {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSchemeCheck.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSchemeCheck.ql
 
 function sanitizeUrl(url) {
     let u = decodeURI(url).trim().toLowerCase();
@@ -19,7 +19,7 @@ function sanitizeUrl(url) {
     return url;
 }
 
-# should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSubstringSanitization.ql or codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSubstringSanitizationSpecific.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSubstringSanitization.ql or codeql/javascript/ql/src/Security/CWE-020/IncompleteUrlSubstringSanitizationSpecific.ql
 
 app.get('/some/path', function(req, res) {
     let url = req.param("url");
@@ -29,7 +29,7 @@ app.get('/some/path', function(req, res) {
     }
 });
 
-# should trigger the above two alerts
+// should trigger the above two alerts
 
 app.get('/some/path', function(req, res) {
     let url = req.param("url"),
@@ -40,13 +40,12 @@ app.get('/some/path', function(req, res) {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-020/IncorrectSuffixCheck.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/IncorrectSuffixCheck.ql
 
 function endsWith(x, y) {
   return x.lastIndexOf(y) === x.length - y.length;
 }
-
-# should trigger codeql/javascript/ql/src/Security/CWE-020/MissingOriginCheck.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/MissingOriginCheck.ql
 
 function postMessageHandler(event) {
     let origin = event.origin.toLowerCase();
@@ -57,8 +56,7 @@ function postMessageHandler(event) {
 }
 
 window.addEventListener('message', postMessageHandler, false);
-
-# should trigger codeql/javascript/ql/src/Security/CWE-020/MissingRegExpAnchor.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/MissingRegExpAnchor.ql
 
 app.get("/some/path", function(req, res) {
     let url = req.param("url");
@@ -68,11 +66,8 @@ app.get("/some/path", function(req, res) {
     }
 });
 
-# should trigger codeql/javascript/ql/src/Security/CWE-020/UselessRegExpCharacterEscape.ql
+// should trigger codeql/javascript/ql/src/Security/CWE-020/UselessRegExpCharacterEscape.ql
 
 let regex = new RegExp('(^\s*)my-marker(\s*$)'),
     isMyMarkerText = regex.test(text);
-
-
-
 
